@@ -1,0 +1,93 @@
+
+{% block totalstyle%} 
+<style>
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+    
+    .footerr {
+        background: #000;
+        padding: 30px 0px;
+        font-family: 'Play', sans-serif;
+        text-align: center;
+    }
+    
+    .footerr .raww {
+        width: 100%;
+        margin: 1% 0%;
+        padding: 0.6% 0%;
+        color: gray;
+        font-size: 0.8em;
+    }
+    
+    .footerr .raww a {
+        text-decoration: none;
+        color: gray;
+        transition: 0.5s;
+    }
+    
+    .footerr .raww a:hover {
+        color: #fff;
+    }
+    
+    .footerr .raww ul {
+        width: 100%;
+    }
+    
+    .footerr .raww ul li {
+        display: inline-block;
+        margin: 0px 30px;
+    }
+    
+    .footerr .raww a i {
+        font-size: 2em;
+        margin: 0% 1%;
+    }
+    
+    @media (max-width:720px) {
+        .footerr {
+            text-align: left;
+            padding: 5%;
+        }
+        .footerr .raww ul li {
+            display: block;
+            margin: 10px 0px;
+            text-align: left;
+        }
+        .footerr .raww a i {
+            margin: 0% 3%;
+        }
+    }
+</style>
+{% endblock totalstyle%}
+
+
+
+{% block content%} 
+<footer>
+    <div class="footerr">
+        <div class="raww">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+
+        <div class="raww">
+            <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Career</a></li>
+            </ul>
+        </div>
+
+        <div class="raww">
+            Designed by Monal Pawar
+        </div>
+    </div>
+</footer>
+{% endblock content%}
+
