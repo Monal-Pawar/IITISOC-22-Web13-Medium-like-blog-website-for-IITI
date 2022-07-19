@@ -1,81 +1,45 @@
-{% extends 'base.html' %}
+{% extends 'blogs/base.html' %}
+{% block title %} title {% endblock title %}
 
-{% block title %}Add Blogs{% endblock title %}
-  {% block Topjs %}
+{% block content %}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-       <script>
-      tinymce.init({
-        selector: '#exampleFormControlTextarea1',
-        height:400,
-          plugins: [
-      'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-      'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-      'table emoticons template paste help'
-    ],
-    toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-      'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-      'forecolor backcolor emoticons | help',
-    menu: {
-      favs: {title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons'}
-    },
+<script>
+  tinymce.init({
+    selector: '#mytextarea',
+    plugins: [
+    'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+    'table emoticons template paste help'
+  ],
+  toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+    'bullist numlist outdent indent | link image | print preview media fullpage | ' +
+    'forecolor backcolor emoticons | help',
     menubar: 'favs file edit view insert format tools table help',
-      });
-    </script>
-  
+    
 
-   {% endblock Topjs %}
+  });
+</script>
 
-   {% block css %}
-   <style>
-   .fad{visibility:hidden;
-     animation: fad 0.5s 1 0.8s forwards;
-   }
-     @keyframes fad {
-    0% {opacity: 0;
-    visibility: hidden;
-    }
 
-    100% {opacity: 1;
-    visibility:visible;
-    }
-  }
-  .inlin{
-    display: inline-block
-  }
-  #output {
-  padding: 20px;
-  background: #dadada;
-}
+</head>
+<body>
+  <h1>Start Blogging</h1>
+  <form action="/blogs/addblog" class="fad" method="POST" enctype='multipart/form-data'>{% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Title</label>
+      <input type="text" class="form-control" name="Addblogt" id="exampleFormControlInput1" placeholder="Enter title">
+    </div>
 
-form {
-  margin-top: 20px;
-}
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+      <textarea id="mytextarea" name="Addblogc" rows="30" columns="20"> Hello </textarea>
 
-select {
-  width: 300px;
-}
-   </style>
-   {% endblock css %}
+    </div>
+    <button type="submit" class="btn btn-info inlin fad">Submit</button>
 
-{% block body %}
-<h1>Share Your Experience</h1>
-<div class="container">
-<form action="/blog/addblog" class="fad" method="POST" enctype='multipart/form-data'>{% csrf_token %}
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Title</label>
-  <input type="text" class="form-control" name="Addblogt" id="exampleFormControlInput1" placeholder="Enter title">
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-  <textarea class="form-control" name="Addblogc" id="exampleFormControlTextarea1" rows="10" columns="20"></textarea>
-</div>
-<button type="submit" class="btn btn-info inlin fad">Submit</button>
-<a href="/blog/">
-  <button type="button" class="btn btn-warning inlin fad">Back</button>
-  
-  </a>
-</form>
-</div>
-          
- {% endblock %}
+
+      
+  </form>
+</body>
+  {% endblock content %}
