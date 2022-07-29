@@ -1,5 +1,5 @@
 {% extends 'blogs/base.html' %}
-{% block title %}BlogWeb{% endblock title %}
+{% block title %}Search Results{% endblock title %}
 
 {% block totalstyle %}
 <style>
@@ -686,15 +686,8 @@
 {% endblock totalstyle %}
 {% block content%}
 <div class="hhhhhhhh">
-    <!--HEADER-->
-    <header style="background: linear-gradient(rgba(1,1,1,.5), rgba(1,1,1,.5)), url(../images/#);">
-        <section>
-            <h1 class="title">Publish Your Passion, In Your Way</h1>
-            <span><a href="/blogs/createblog">Create</a> <i class="fa fa-angle-double-right"></i> <a style="color:#04AA6D;" href="#"
-                    class="active">Blog</a></span>
-        </section>
-    </header>
-
+   
+    
 
     <!--BLOG SECTION-->
     <div class="blog_container">
@@ -747,73 +740,7 @@
             <button class="btn1 load-btn">Load more</button>
         </div>
 
-        <div class="blog_content right_content">
-            <!--SEARCH COLUMN BEGINING-->
-            <div class="columns search_column">
-                <section class="search">
-                    <form method="get" action="/blogs/search" >
-                        <fieldset><input type="text" name="querysearch" id="querysearch" placeholder="Search..." maxlength="100" required="">
-                        </fieldset>
-                        <fieldset><button type="submit" class="btn1"><i class="fa fa-search"></i></button></fieldset>
-                    </form>
-                </section>
-            </div>
-            <!--SEARCH COLUMN ENDS-->
-
-            <!--CATEGORIES COLUMN BEGINING-->
-            <div class="columns categories">
-                <span class="title">Categories</span>
-                <section>
-                    {% for c in cats %}
-                    <a >{{c.title}}</a>
-                    {% endfor %}
-                </section>
-            </div>
-            <!--CATEGORIES COLUMN ENDS-->
-            <!--POSTS COLUMN BEGINING-->
-            <div class="columns posts">
-                <span class="title">Recent Posts <a href="#" title="Explore More"><i class="fa fa-share"></i></a></span>
-                <section>
-                    <a href="#"><img src="https://i.postimg.cc/KcwkZQsx/dummy.png" alt="" loading="lazy">
-                        <p>Be brave, be strong, be bold. Man dies but once. </p>
-                    </a>
-                    <a href="#"><img src="https://i.postimg.cc/KcwkZQsx/dummy.png" alt="" loading="lazy">
-                        <p>Be brave, be strong, be bold. Man dies but once. </p>
-                    </a>
-                    <a href="#"><img src="https://i.postimg.cc/KcwkZQsx/dummy.png" alt="" loading="lazy">
-                        <p>Be brave, be strong, be bold. Man dies but once. </p>
-                    </a>
-                </section>
-            </div>
-            <!--POSTS COLUMN ENDS-->
-            <!--COMMENTS COLUMN BEGINING-->
-            <div class="columns comments">
-                <span class="title"> Recent Comments <a href="#" title="Explore More"><i
-                            class="fa fa-share"></i></a></span>
-                <section>
-                    <marquee direction="up" scrollamount="4" onMouseOver="this.stop()" onMouseOut="this.start()"
-                        class="marquee2">
-                        <p>Remember, torn clothes should not be left at home. Dispose of them out. Buying new clothes
-                            like
-                            towels.</p>
-                        <p>wearing clothes, bedsheets are like inviting good luck to the home.</p>
-                        <p>Arrange doormats before every door and please change the doormats once in 6/8 months or
-                            maximum
-                            within 1 year. For More Daily</p>
-                    </marquee>
-                </section>
-            </div>
-            <!--COMMENTS COLUMN ENDS-->
-            <!--SOCIAL MEDIA ICONS BEGINING-->
-            <div class="columns social_icons">
-                <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
-                <a href="#" title="Instagram"><i class="fa fa-instagram"></i></a>
-                <a href="#" title="Youtube"><i class="fa fa-youtube"></i></a>
-                <a href="#" title="Whatsapp"><i class="fa fa-whatsapp"></i></a>
-                <a href="#" title="Telegram"><i class="fa fa-telegram"></i></a>
-            </div>
-            <!--SOCIAL MEDIA ICONS ENDS-->
-        </div>
+        
     </div>
 </div>
 

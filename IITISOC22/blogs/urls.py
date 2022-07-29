@@ -6,6 +6,6 @@ urlpatterns = [
   path('createblog',views.createblog),
   path('addblog',views.addblog),
   path('login',views.login),
-  
+  path('search',views.search),
 
 ]

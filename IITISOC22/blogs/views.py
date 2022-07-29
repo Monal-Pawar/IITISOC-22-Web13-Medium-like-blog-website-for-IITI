@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render
 
 from blogs.models import Category, Post
@@ -64,5 +65,13 @@ def addblog(request):
         print(content,cat)
         return redirect('/')
 
+def search(request):
+    querysearch=request.GET['querysearch']
+    post = Post.objects.filter(title__icontains=querysearch)
+    data={
+        'post':post,
+        'cats':cats,
+    }
+    return render(request,'blogs/search.html',data)
 
   
