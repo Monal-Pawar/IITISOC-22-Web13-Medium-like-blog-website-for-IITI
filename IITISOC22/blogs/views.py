@@ -8,20 +8,23 @@ from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 import json
 from django.contrib import messages
+from django.contrib import messages
 import datetime
 import os
 
 #home
 def home(request):
     # load all the posts from db(10)
-    post = Post.objects.all()[:11]
+    post = Post.objects.all()
     # load all the category from db(10)
-    cats = Category.objects.all()
+    
     # print(post)
+    cats = Category.objects.all()
     data={
         'post':post,
-        'cats':cats
+        'cats':cats,
     }
+    print(post,cats)
 
     return render(request,'blogs/home.html',data)
 
@@ -32,20 +35,34 @@ def contactus(request):
 
 #login
 def createblog(request):
-    return render(request,'blogs/create.html')
+    # post = Post.objects.all().order_by('sno')
+    cats = Category.objects.all()
+    data={
+        'cats':cats
+    }
+    return render(request,'blogs/create.html',data)
     
     
 #login
 def login(request):
     return render(request,'blogs/login.html')
 
-
+#addblog
 def addblog(request):
     if request.method == "POST":
         title = request.POST.get('Addblogt')
         content = request.POST.get('Addblogc')
-        print(content)
-        return HttpResponse("hello monal bai how r u")
+        descr = request.POST.get('Addblogd')
+        author = 'monal'
+        cat = request.POST.get('drop')
+        
+        addblogtotal= Post(title=title,description=descr,content=content,cat=cat)
+        addblogtotal.save()
+
+        messages.success(request,"Blog added successfully!")
+        
+        print(content,cat)
+        return redirect('/')
 
 
   

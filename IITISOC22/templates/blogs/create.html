@@ -30,7 +30,20 @@
       <label for="exampleFormControlInput1" class="form-label">Title</label>
       <input type="text" class="form-control" name="Addblogt" id="exampleFormControlInput1" placeholder="Enter title">
     </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Description</label>
+      <input type="text" class="form-control" name="Addblogd" id="exampleFormControlInput1" placeholder="Description">
+    </div>
 
+    <div class="mb-3">
+      <label for="drop" class="form-label">Select Category</label>
+
+      <select class="form-select" name="drop" id="drop" aria-label="Default select example" >
+        {% for c in cats %}
+        <option value="{{c.title}}">{{c.title}}</option>
+        {% endfor %}
+      </select>
+    </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">Content</label>
       <textarea id="mytextarea" name="Addblogc" rows="30" columns="20"> Hello </textarea>

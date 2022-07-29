@@ -5,14 +5,14 @@ from .models import Category,Post
 
 #for configuration of Category admin
 class CategoryAdmin(admin.ModelAdmin):
-    list_display= ('title','description','author','url','add_date')
+    list_display= ('title',)
     search_fields= ('title',)
 
 class PostAdmin(admin.ModelAdmin):
-    list_display= ('title',)
+    list_display= ('title','content')
     search_fields= ('title',)
     list_filter= ('cat',)
-    list_per_page: 10
+    # list_per_page: 10
 
 
 admin.site.register(Category,CategoryAdmin) 
