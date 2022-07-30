@@ -7,5 +7,7 @@ urlpatterns = [
   path('addblog',views.addblog),
   path('login',views.login),
   path('search',views.search),
+  path('category/<str:s>',views.category),
+
 
 ]

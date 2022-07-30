@@ -68,10 +68,23 @@ def addblog(request):
 def search(request):
     querysearch=request.GET['querysearch']
     post = Post.objects.filter(title__icontains=querysearch)
+    cats = Category.objects.all()
     data={
         'post':post,
         'cats':cats,
     }
-    return render(request,'blogs/search.html',data)
+    print(post,cats)
+
+    return render(request,'blogs/home.html',data)
+
+def category(request,s):
+    post = Post.objects.filter(cat__icontains=s)
+    cats = Category.objects.all()
+    data={
+        'post':post,
+        'cats':cats,
+    }
+    print(post,cats)
+    return render(request,'blogs/home.html',data)
 
   

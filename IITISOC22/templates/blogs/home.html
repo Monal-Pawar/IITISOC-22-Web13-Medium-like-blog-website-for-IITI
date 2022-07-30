@@ -764,8 +764,9 @@
             <div class="columns categories">
                 <span class="title">Categories</span>
                 <section>
+                    <a href="/">Show all</a>
                     {% for c in cats %}
-                    <a >{{c.title}}</a>
+                    <a href="/blogs/category/{{c.title}}">{{c.title}}</a>
                     {% endfor %}
                 </section>
             </div>
